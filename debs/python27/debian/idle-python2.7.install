@@ -1,0 +1,3 @@
+#! /usr/bin/dh-exec
+usr/bin/idle => usr/bin/idle-python2.7
+usr/lib/python2.7/idlelib => usr/lib/python2.7/idlelib

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        # Touch and set permisions on default log files on installation
+        if [ -z "$2" ]; then
+            adduser --system --group --quiet collectd
+        fi
+       ;;
+esac
+
+#DEBHELPER#
+
+exit 0

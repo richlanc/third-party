@@ -1,0 +1,5 @@
+python2.7 (2.7.13-ubuntu0) trusty; urgency=medium
+
+  * Initial release.
+
+ -- Simon Engledew <https://github.com/Osirium/trusty-python>  Mon, 13 Feb 2017 12:01:25 +0000

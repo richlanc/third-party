@@ -1,0 +1,11 @@
+nginx (1.11.4-ubuntu1) trusty; urgency=low
+
+  * Compile with http auth request module support
+
+ -- Osirium <support@osirium.com>  Wed, 19 Oct 2016 08:33:00 +0100
+
+nginx (1.11.4-ubuntu0) trusty; urgency=low
+
+  * Release 1.11.4
+
+ -- Osirium <support@osirium.com>  Wed, 19 Oct 2016 08:33:00 +0100

@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	$(MAKE) USE_STATIC_PCRE=1 USE_OPENSSL=1 USE_ZLIB=1 TARGET=linux2628
+
+override_dh_auto_install:
+	$(MAKE) install PREFIX=/usr DESTDIR=$(CURDIR)/debian/haproxy

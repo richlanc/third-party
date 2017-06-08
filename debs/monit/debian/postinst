@@ -1,0 +1,28 @@
+#!/bin/sh -e
+
+case "$1" in
+    configure)
+        # Touch and set permisions on default log files on installation
+        if [ -z "$2" ]; then
+            if [ ! -d /etc/monit.d ]; then
+                mkdir -p /etc/monit.d
+            fi
+        fi
+
+        if [ ! -f /etc/ssl/certs/monit.pem ]; then
+            openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/certs/monit.pem -outform PEM -out /etc/ssl/certs/monit.pem -subj "/O=Osirium/OU=Osirium/CN=monit"
+        fi
+
+        if [ "$( stat -c '%a' /etc/ssl/certs/monit.pem )" != '600' ]; then
+            chmod 600 /etc/ssl/certs/monit.pem
+        fi
+
+        if [ "$( stat -c '%a' /etc/monitrc )" != '600' ]; then
+            chmod 600 /etc/monitrc
+        fi
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

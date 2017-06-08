@@ -1,0 +1,11 @@
+monit (5.19.0-ubuntu1) trusty; urgency=medium
+
+  * Remove stock monitrc
+
+ -- Osirium <support@osirium.com>  Mon, 24 Apr 2017 22:36:47 +0000
+
+monit (5.19.0-ubuntu0) trusty; urgency=low
+
+  * Release 5.19.0
+
+ -- Osirium <support@osirium.com>  Wed, 19 Oct 2016 08:33:00 +0100

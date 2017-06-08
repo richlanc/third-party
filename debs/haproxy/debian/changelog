@@ -1,0 +1,5 @@
+haproxy (1.6.11-ubuntu0) trusty; urgency=medium
+
+  * Initial release.
+
+ -- Osirium <support@osirium.com>  Mon, 13 Feb 2017 08:55:31 +0000

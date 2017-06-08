@@ -1,0 +1,116 @@
+Source: python2.7
+Section: python
+Priority: optional
+Maintainer: Simon Engledew <https://github.com/Osirium/trusty-python>
+Build-Depends: debhelper (>= 8.0.0), libreadline6-dev, libsqlite3-dev,
+  liblzma-dev, libbz2-dev, tk8.5-dev, blt-dev, libgdbm-dev, libssl-dev,
+  libncurses5-dev
+Standards-Version: 3.9.4
+
+Package: python2.7
+Section: base
+Priority: standard
+Architecture: any
+Depends: python2.7-minimal (= ${binary:Version}), libpython2.7-stdlib (= ${binary:Version}), mime-support
+Description:  Interactive high-level object-oriented language (version 2.7)
+ Python is a high-level, interactive, object-oriented language. Its 2.7 version
+ includes an extensive class library with lots of goodies for
+ network programming, system administration, sounds and graphics.
+
+Package: python2.7-minimal
+Section: base
+Priority: standard
+Architecture: any
+Pre-Depends: libc6 (>= 2.15)
+Depends: libpython2.7-minimal (= ${binary:Version})
+Description: Minimal subset of the Python language (version 2.7)
+ This package contains the interpreter and some essential modules.  It can
+ be used in the boot process for some basic tasks.
+ See /usr/share/doc/python2.7-minimal/README.Debian for a list of the modules
+ contained in this package.
+
+Package: python2.7-dev
+Section: base
+Priority: standard
+Architecture: any
+Depends: python2.7 (= ${binary:Version}), libpython2.7-dev (= ${binary:Version}), libpython2.7 (= ${binary:Version}), libexpat1-dev, ${shlibs:Depends}, ${misc:Depends}
+Recommends: libc6-dev | libc-dev
+Description: Header files and a static library for Python (v2.7)
+ Header files, a static library and development tools for building
+ Python (v2.7) modules, extending the Python interpreter or embedding
+ Python (v2.7) in applications.
+ .
+ Maintainers of Python packages should read README.maintainers.
+
+Package: libpython2.7
+Section: base
+Priority: standard
+Architecture: any
+Depends: libpython2.7-stdlib (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: libc6-dev | libc-dev
+Description: Shared Python runtime library (version 2.7)
+ Python is a high-level, interactive, object-oriented language. Its 2.7 version
+ includes an extensive class library with lots of goodies for
+ network programming, system administration, sounds and graphics.
+ .
+ This package contains the shared runtime library, normally not needed
+ for programs using the statically linked interpreter.
+
+Package: libpython2.7-dev
+Section: base
+Priority: standard
+Architecture: any
+Depends: libpython2.7-stdlib (= ${binary:Version}), libpython2.7 (= ${binary:Version}), libexpat1-dev, ${shlibs:Depends}, ${misc:Depends}
+Recommends: libc6-dev | libc-dev
+Description: Header files and a static library for Python (v2.7)
+ Header files, a static library and development tools for building
+ Python (v2.7) modules, extending the Python interpreter or embedding
+ Python (v2.7) in applications.
+ .
+ Maintainers of Python packages should read README.maintainers.
+ .
+ This package contains development files. It is normally not
+ used on it's own, but as a dependency of python2.7-dev.
+
+Package: libpython2.7-minimal
+Section: base
+Priority: standard
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Minimal subset of the Python language (version 2.7)
+ This package contains some essential modules. It is normally not
+ used on it's own, but as a dependency of python2.7-minimal.
+
+Package: libpython2.7-testsuite
+Section: libdevel
+Architecture: all
+Depends: libpython2.7-stdlib (>= ${binary:Version}), ${misc:Depends}
+Description: Testsuite for the Python standard library (v2.7)
+ The complete testsuite for the Python standard library.  Note that
+ a subset is found in the libpython2.7-stdlib package, which should
+ be enough for other packages to use (please do not build-depend
+ on this package, but file a bug report to include additional
+ testsuite files in the libpython2.7-stdlib package).
+
+Package: idle-python2.7
+Architecture: all
+Depends: python2.7, python-tk (>= 2.6~a3), python2.7-tk, ${misc:Depends}
+Enhances: python2.7
+Replaces: python2.7 (<< 2.6.1-2)
+Description: IDE for Python (v2.7) using Tkinter
+ IDLE is an Integrated Development Environment for Python (v2.7).
+ IDLE is written using Tkinter and therefore quite platform-independent.
+
+Package: libpython2.7-stdlib
+Section: base
+Priority: standard
+Architecture: any
+Depends:  libpython2.7-minimal (= ${binary:Version}), mime-support, libbz2-1.0, libc6 (>= 2.15), libdb5.3, libexpat1 (>= 2.1~beta3), libffi6 (>= 3.0.4), libncursesw5 (>= 5.6+20070908), libreadline6 (>= 6.0), libsqlite3-0 (>= 3.5.9), libssl1.0.0 (>= 1.0.0), libtinfo5
+Provides: python-argparse, python2.7-argparse, python2.7-celementtree, python2.7-cjkcodecs, python2.7-ctypes, python2.7-elementtree, python2.7-profiler, python2.7-wsgiref
+Description: Interactive high-level object-oriented language (standard library, version 2.7)
+ Python is a high-level, interactive, object-oriented language. Its 2.7 version
+ includes an extensive class library with lots of goodies for
+ network programming, system administration, sounds and graphics.
+ .
+ This package contains Python 2.7's standard library. It is normally not
+ used on its own, but as a dependency of python2.7.

@@ -1,0 +1,2 @@
+bin/casperjs usr/share/casperjs/bin
+bin/bootstrap.js usr/share/casperjs/bin

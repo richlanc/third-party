@@ -1,0 +1,3 @@
+#! /usr/bin/dh-exec
+usr/bin/2to3 => usr/bin/2to3-2.7
+usr/bin/pydoc => usr/bin/pydoc-2.7

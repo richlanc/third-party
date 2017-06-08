@@ -1,0 +1,14 @@
+Source: haproxy
+Section: net
+Priority: optional
+Maintainer: Osirium <support@osirium.com>
+Build-Depends: debhelper (>= 8.0.0), libssl-dev, libpcre3-dev
+Standards-Version: 3.9.4
+Homepage: https://www.osirium.com
+
+Package: haproxy
+Section: base
+Depends: ${shlibs:Depends}
+Priority: optional
+Architecture: any
+Description: haproxy

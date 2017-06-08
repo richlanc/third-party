@@ -1,0 +1,7 @@
+#! /usr/bin/dh-exec
+usr/lib/python2.7/lib-tk/test => usr/lib/python2.7/lib-tk/test
+usr/lib/python2.7/bsddb/test => usr/lib/python2.7/bsddb/test
+usr/lib/python2.7/ctypes/test => usr/lib/python2.7/ctypes/test
+usr/lib/python2.7/email/test => usr/lib/python2.7/email/test
+usr/lib/python2.7/sqlite3/test => usr/lib/python2.7/sqlite3/test
+usr/lib/python2.7/test => usr/lib/python2.7/test

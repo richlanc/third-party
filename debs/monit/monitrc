@@ -1,0 +1,13 @@
+set daemon 120 with start delay 240
+
+set logfile syslog
+
+# bind the monit admin interface
+# login with osirium_support local user
+set httpd port 2812 and
+  use address 0.0.0.0
+  ssl enable
+  pemfile /etc/ssl/certs/monit.pem
+  allow @osirium_support
+
+include /etc/monit.d/*
