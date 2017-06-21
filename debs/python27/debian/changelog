@@ -1,3 +1,9 @@
+python2.7 (2.7.13-ubuntu1) trusty; urgency=medium
+
+  * With LTO link flags OS-2037
+
+ -- Edward Sharp <https://github.com/Osirium/trusty-python>  Wed, 21 Jun 2017 12:32:25 +0000
+
 python2.7 (2.7.13-ubuntu0) trusty; urgency=medium
 
   * Initial release.
