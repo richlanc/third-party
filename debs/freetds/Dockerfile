@@ -1,4 +1,4 @@
-FROM trusty:base
+FROM #IMAGE#
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
