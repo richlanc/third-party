@@ -1,0 +1,24 @@
+Index: Makefile.pre.in
+===================================================================
+--- Makefile.pre.in
++++ Makefile.pre.in
+@@ -122,8 +122,8 @@ LIBP=		$(LIBDIR)/python$(VERSION)
+ 
+ # Symbols used for using shared libraries
+ SO=		@SO@
+-LDSHARED=	@LDSHARED@ $(LDFLAGS)
+-BLDSHARED=	@BLDSHARED@ $(LDFLAGS)
++LDSHARED=	@LDSHARED@ $(PY_LDFLAGS)
++BLDSHARED=	@BLDSHARED@ $(PY_LDFLAGS) $(PY_CFLAGS)
+ LDCXXSHARED=	@LDCXXSHARED@
+ DESTSHARED=	$(BINLIBDEST)/lib-dynload
+ 
+@@ -507,7 +507,7 @@ coverage-report:
+ 
+ # Build the interpreter
+ $(BUILDPYTHON):	Modules/python.o $(LIBRARY) $(LDLIBRARY)
+-		$(LINKCC) $(LDFLAGS) $(LINKFORSHARED) -o $@ \
++		$(LINKCC) $(PY_LDFLAGS) $(PY_CFLAGS) $(LINKFORSHARED) -o $@ \
+ 			Modules/python.o \
+ 			$(BLDLIBRARY) $(LIBS) $(MODLIBS) $(SYSLIBS) $(LDLAST)
+ 
