@@ -16,4 +16,8 @@ Update base trusty images
 
 Push to S3 debian repository (you will need AWS credentials configured first)
 
+`pip install -r requirements.txt`
+
+`aws configure` - Si, Paul, Uzzell, Dan, Ed, Carlos can all grant cred's
+
 `make sync`
