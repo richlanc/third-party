@@ -1,3 +1,9 @@
+python2.7 (2.7.14-ubuntu0) trusty; urgency=medium
+
+  * Bump Python to 2.7.14
+
+ -- Simon Engledew <https://github.com/Osirium/trusty-python>  Thr, 28 Sep 2017 12:32:25 +0000
+
 python2.7 (2.7.13-ubuntu1) trusty; urgency=medium
 
   * With LTO link flags OS-2037
