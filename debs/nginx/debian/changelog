@@ -1,3 +1,9 @@
+nginx (1.12.1-ubuntu0) xenial; urgency=medium
+
+  * Bump nginx to 1.12.1
+
+ -- Osirium <support@osirium.com>  Mon, 02 Oct 2017 10:49:51 +0000
+
 nginx (1.11.4-ubuntu1) trusty; urgency=low
 
   * Compile with http auth request module support

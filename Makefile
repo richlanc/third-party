@@ -22,8 +22,9 @@ $(DEBS):
 all: pull debs-32 debs-64 index
 
 index:
-	docker build ./index -t trusty/index
-	docker run --rm -v "$(CURDIR)/out:/packages" trusty/index
+	docker build ./index -t xenial/index
+	docker run --rm -v "$(CURDIR)/out:/packages" xenial/index
 
+#  --delete
 sync:
-	aws s3 sync --delete --storage-class REDUCED_REDUNDANCY out/ s3://osirium-trusty/$(shell git rev-list --count HEAD)-$(shell git rev-parse --short head)/
+	aws s3 sync --storage-class REDUCED_REDUNDANCY out/ s3://osirium-trusty/$(shell git rev-list --count HEAD)-$(shell git rev-parse --short head)/

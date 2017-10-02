@@ -8,6 +8,7 @@ RUN apt-get update \
       curl \
       debhelper \
       devscripts \
+      dh-exec \
       equivs \
       lsb-release \
       ;

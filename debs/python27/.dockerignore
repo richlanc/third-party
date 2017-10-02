@@ -1,3 +1,5 @@
 Dockerfile
 Dockerfile.tmp
 README.md
+.vagrant
+Vagrantfile
