@@ -9,6 +9,7 @@ RUN apt-get update \
       debhelper \
       devscripts \
       equivs \
+      lsb-release \
       ;
 
 WORKDIR /build/source
@@ -27,6 +28,6 @@ COPY . ./
 
 RUN dpkg-buildflags && DEB_BUILD_OPTIONS="parallel=$(nproc) nocheck" dpkg-buildpackage -B
 
-CMD mkdir -p /out/dists/trusty/main/binary-$( dpkg --print-architecture )/ \
+CMD mkdir -p /out/dists/$( lsb_release -c -s )/main/binary-$( dpkg --print-architecture )/ \
     && dpkg -c /build/*.deb \
-    && cp /build/*.deb /out/dists/trusty/main/binary-$( dpkg --print-architecture )/
+    && cp /build/*.deb /out/dists/$( lsb_release -c -s )/main/binary-$( dpkg --print-architecture )/

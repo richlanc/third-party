@@ -14,5 +14,5 @@ RUN apt-get update \
 VOLUME /packages
 WORKDIR /packages
 
-CMD dpkg-scanpackages -m dists/trusty/main/binary-i386 /dev/null | gzip -9c > dists/trusty/main/binary-i386/Packages.gz \
-    && dpkg-scanpackages -m dists/trusty/main/binary-amd64 /dev/null | gzip -9c > dists/trusty/main/binary-amd64/Packages.gz
+CMD dpkg-scanpackages -m dists/$( lsb_release -c -s )/main/binary-i386 /dev/null | gzip -9c > dists/$( lsb_release -c -s )/main/binary-i386/Packages.gz \
+    && dpkg-scanpackages -m dists/$( lsb_release -c -s )/main/binary-amd64 /dev/null | gzip -9c > dists/$( lsb_release -c -s )/main/binary-amd64/Packages.gz
