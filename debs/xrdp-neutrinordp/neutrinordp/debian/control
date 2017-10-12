@@ -1,0 +1,13 @@
+Source: osirium-neutrinordp
+Section: osirium
+Priority: optional
+Maintainer: Osirium <support@osirium.com>
+Build-Depends: debhelper (>= 8.0.0), cmake, libasound2-dev, libavformat-dev, libavcodec-dev, libssl-dev, libx11-dev, libxcursor-dev, libxdamage-dev, libxext-dev, libxinerama-dev, libxkbfile-dev, libxml2, libxml2-dev, libxrandr-dev, libxv-dev, pkg-config, xmlto
+Standards-Version: 3.9.4
+Homepage: https://www.osirium.com
+
+Package: osirium-neutrinordp
+Section: base
+Priority: optional
+Architecture: any
+Description: osirium-neutrinordp

@@ -1,0 +1,77 @@
+#! /bin/bash
+
+### BEGIN INIT INFO
+# Provides:          xrdp
+# Required-Start:    $syslog $remote_fs
+# Required-Stop:     $syslog $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts xrdp
+# Description:       starts the osirium RDP proxy
+### END INIT INFO
+XRDP_CONFIG_DIR="/etc/xrdp"
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+NAME=osirium-xrdp
+DAEMON=/usr/sbin/xrdp
+DAEMON_OPTS="--nodaemon"
+PIDFILE="/var/run/osirium-xrdp.pid"
+
+set -e
+
+source /lib/lsb/init-functions
+
+(
+  flock -x 200
+
+  if [ ! -f "${XRDP_CONFIG_DIR}/rsakeys.ini" ]; then
+    /usr/bin/xrdp-keygen xrdp "${XRDP_CONFIG_DIR}/rsakeys.ini"
+  fi
+
+) 200>/var/lock/xrdp.lock
+
+function xrdp_start {
+  start-stop-daemon --start --quiet --background --make-pidfile --pidfile "${PIDFILE}" --chuid xrdp --exec "${DAEMON}" -- $DAEMON_OPTS
+}
+
+function xrdp_stop {
+  start-stop-daemon --stop --oknodo --retry=TERM/60/KILL/5 --quiet --pidfile "$PIDFILE"
+}
+
+function xrdp_reload {
+  start-stop-daemon --stop --signal HUP --quiet --pidfile "${PIDFILE}" --chuid xrdp --exec "${DAEMON}"
+}
+
+case "$1" in
+  start)
+    log_daemon_msg "Starting" "${NAME}"
+    xrdp_start && log_end_msg 0 || log_end_msg 1
+    ;;
+  stop)
+    log_daemon_msg "Stopping" "${NAME}"
+    xrdp_stop && log_end_msg 0 || log_end_msg 1
+    ;;
+  restart|force-reload)
+    log_daemon_msg "Restarting" "${NAME}"
+    (
+      xrdp_stop &&
+      xrdp_start
+    ) && log_end_msg 0 || log_end_msg 1
+    ;;
+  run)
+    start-stop-daemon --start --chuid xrdp --exec "${DAEMON}" -- $DAEMON_OPTS
+    ;;
+  reload)
+    log_daemon_msg "Reloading" "${NAME}"
+    xrdp_reload && log_end_msg 0 || log_end_msg 1
+    ;;
+  status)
+    status_of_proc -p "${PIDFILE}" "${DAEMON}" "${NAME}" && exit 0 || exit $?
+    ;;
+  *)
+    echo "Usage: /etc/init.d/${NAME} {start|run|stop|restart|reload|force-reload|status}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

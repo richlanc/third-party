@@ -1,0 +1,3 @@
+osirium-cifs usr/bin
+dist/verify-password.jar usr/share/osirium-cifs
+dist/get-hostname.jar usr/share/osirium-cifs

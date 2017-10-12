@@ -1,0 +1,15 @@
+Source: osirium-xrdp
+Section: osirium
+Priority: optional
+Maintainer: Osirium <support@osirium.com>
+Build-Depends: debhelper (>= 8.0.0), autoconf, libtool, pkg-config, gcc, g++, make, libssl-dev, libpam0g-dev, libjpeg-dev, libx11-dev, libxfixes-dev, libxrandr-dev, flex, bison, intltool, xutils-dev, xutils
+Standards-Version: 3.9.4
+Homepage: https://www.osirium.com
+
+Package: osirium-xrdp
+Section: base
+Priority: optional
+Architecture: any
+Pre-Depends: osirium-neutrinordp (>= 1.0.2)
+Recommends: osirium-certificates
+Description: osirium-xrdp

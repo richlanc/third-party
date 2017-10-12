@@ -1,0 +1,23 @@
+osirium-neutrinordp (1.0.3-osirium1) trusty; urgency=medium
+
+  * Fixed error not being set on protocol negotiation failure
+
+ -- Osirium <support@osirium.com> Tue, 20 Jun 2017 16:36:00 +0100
+
+osirium-neutrinordp (1.0.2-osirium1) trusty; urgency=medium
+
+  * Added error reporting on connection failure
+
+ -- Osirium <support@osirium.com>  Wed, 08 Mar 2017 10:29:30 +0000
+
+osirium-neutrinordp (1.0.1-osirium1) trusty; urgency=medium
+
+  * Fixed incorrect username and password issue
+
+ -- Osirium <support@osirium.com>  Wed, 08 Feb 2017 08:49:45 +0000
+
+osirium-neutrinordp (1.0.1-osirium0) trusty; urgency=low
+
+  * Initial release
+
+ -- Osirium <support@osirium.com>  Wed, 19 Oct 2016 08:33:00 +0100
