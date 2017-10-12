@@ -1,0 +1,46 @@
+<project name="spider" basedir="." default="jar">
+    <property name="out" location="out"/>
+    <property name="cache" location="/tmp/cache"/>
+    <property name="jars" location="jars"/>
+
+    <target name="clean">
+    </target>
+
+    <target name="downloads">
+      <mkdir dir="${cache}" />
+
+      <get src="https://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.5.3/jython-installer-2.5.3.jar" dest="${cache}/jython-installer-2.5.3.jar" skipexisting="true" />
+
+      <copy todir="jython">
+        <zipentry zipfile="${cache}/jython-installer-2.5.3.jar" name="jython.jar" />
+      </copy>
+    </target>
+
+    <target name="jar" depends="downloads">
+      <delete dir="${out}" />
+      <mkdir dir="${out}" />
+
+      <copy file="__run__.py" todir="${out}"/>
+
+      <copy todir="${out}/Lib/osirium">
+        <fileset dir="osirium">
+          <exclude name="spider/lib/**" />
+          <exclude name="spider/lib/" />
+        </fileset>
+      </copy>
+
+      <jar destfile="dependencies.jar">
+        <zipgroupfileset dir="jars" includes="*.jar" />
+      </jar>
+
+      <jar destfile="spider.jar" basedir="${out}">
+        <zipgroupfileset dir="jython" />
+
+        <zipfileset src="${cache}/jython-installer-2.5.3.jar" includes="Lib/**" />
+        <manifest>
+          <attribute name="Main-Class" value="org.python.util.JarRunner"/>
+          <attribute name="Class-Path" value="dependencies.jar"/>
+        </manifest>
+      </jar>
+    </target>
+</project>

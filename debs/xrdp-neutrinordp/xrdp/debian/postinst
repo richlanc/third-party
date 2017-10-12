@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -euo pipefail
+
+case "$1" in
+    configure)
+        if [ -z "$2" ]; then
+            adduser --quiet --system --group 'xrdp'
+
+            if [ ! -d /var/log/osirium/xrdp ]; then
+                mkdir -p /var/log/osirium/xrdp
+                chown xrdp:xrdp /var/log/osirium/xrdp
+            fi
+        fi
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

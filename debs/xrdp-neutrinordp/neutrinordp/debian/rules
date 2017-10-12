@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+CONFIGURE_FLAGS = -DWITH_SSE2=ON
+
+ifeq ($(ENVIRONMENT), debug)
+CONFIGURE_FLAGS += -DCMAKE_BUILD_TYPE=Debug -DWITH_DEBUG_NLA=1 -DWITH_DEBUG_NEGO=1 -DWITH_DEBUG_NTLM=1
+endif
+
+%:
+	dh $@ --buildsystem=cmake --builddirectory=.
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(CONFIGURE_FLAGS)

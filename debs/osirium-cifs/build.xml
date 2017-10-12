@@ -1,0 +1,41 @@
+<project name="windows" basedir="." default="jar">
+    <property name="build" location="build"/>
+
+    <target name="get-hostname" depends="jar">
+        <java jar="dist/get-hostname.jar" fork="true">
+            <arg line="${address}"/>
+        </java>
+    </target>
+
+    <target name="verify-password" depends="jar">
+        <property name="domain" value="" />
+        <java jar="dist/verify-password.jar" fork="true" inputstring="${password}">
+            <arg value="${host}"/>
+            <arg value="${username}"/>
+            <arg value="${domain}" />
+        </java>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}" />
+    </target>
+
+    <target name="build">
+        <mkdir dir="${build}" />
+        <javac srcdir="src" destdir="build" includeantruntime="false" />
+    </target>
+
+    <target name="jar" depends="build">
+        <jar destfile="dist/verify-password.jar" basedir="${build}">
+            <manifest>
+              <attribute name="Main-Class" value="com.osirium.windows.VerifyPassword"/>
+            </manifest>
+        </jar>
+
+        <jar destfile="dist/get-hostname.jar" basedir="${build}">
+            <manifest>
+              <attribute name="Main-Class" value="com.osirium.windows.GetHostname"/>
+            </manifest>
+        </jar>
+    </target>
+</project>

@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+case "$1" in
+    install)
+        if [ -z "$2" ]; then
+            rm -rf /opt/jython
+            rm -rf /opt/osirium/jythonenv
+        fi
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

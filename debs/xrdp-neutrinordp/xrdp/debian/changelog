@@ -1,0 +1,24 @@
+osirium-xrdp (1.0.4-osirium0) trusty; urgency=high
+
+  * Do not log sha1 hash of passwords
+
+ -- Osirium <support@osirium.com>  Tue, 05 Sep 2017 07:31:47 +0000
+
+osirium-xrdp (1.0.3-osirium0) trusty; urgency=medium
+
+  * Pass through for keyboard mappings regardless of rail_support_level
+
+ -- Osirium <support@osirium.com>  Mon, 05 Jun 2017 14:44:00 +0100
+
+osirium-xrdp (1.0.2-osirium0) trusty; urgency=medium
+
+  * Added connection error reporting
+  * Added pass through for keyboard mappings
+
+ -- Osirium <support@osirium.com>  Wed, 08 Mar 2017 11:36:00 +0000
+
+osirium-xrdp (1.0.1-osirium0) trusty; urgency=low
+
+  * Initial release
+
+ -- Osirium <support@osirium.com>  Wed, 19 Oct 2016 08:33:00 +0100

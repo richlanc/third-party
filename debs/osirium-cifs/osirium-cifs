@@ -1,0 +1,14 @@
+#!/bin/sh
+
+command="$1"
+
+case "$command" in
+  get-hostname|verify-password)
+    shift
+    exec java -jar "/usr/share/osirium-cifs/$command.jar" $@
+    ;;
+  *)
+    echo "Usage: $NAME {get-hostname|verify-password}" >&2
+    exit 1
+    ;;
+esac
