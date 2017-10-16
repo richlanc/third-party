@@ -13,13 +13,6 @@ RUN apt-get update \
       lsb-release \
       ;
 
-RUN apt-get update \
-    && apt-get --quiet --yes --no-install-recommends install \
-      clang-4.0 \
-      llvm-4.0 \
-      llvm-4.0-dev \
-      ;
-
 VOLUME /out
 WORKDIR /build/source
 
@@ -33,15 +26,7 @@ RUN export VERSION="$( /usr/bin/dpkg-parsechangelog --show-field Version | cut -
 
 COPY . .
 
-RUN export PATH="/usr/lib/llvm-4.0/bin:$PATH" \
-        DEB_CFLAGS_STRIP='-O2' \
-        DEB_CXXFLAGS_STRIP='-O2' \
-        CC="/usr/bin/clang-4.0" \
-        CXX="/usr/bin/clang++-4.0++" \
-        AR=llvm-ar \
-        NM=llvm-nm \
-        RANLIB=llvm-ranlib \
-        DEB_LDFLAGS_APPEND='-use-gold-plugin -fuse-ld=gold' \
+RUN export DEB_CFLAGS_STRIP='-O2' DEB_CXXFLAGS_STRIP='-O2' \
     && dpkg-buildflags \
     && DEB_BUILD_OPTIONS="parallel=$(nproc) nocheck" dpkg-buildpackage -B
 
