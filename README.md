@@ -10,10 +10,6 @@ Reindex packages
 
 `make index`
 
-Update base trusty images
-
-`make pull`
-
 Push to S3 debian repository (you will need AWS credentials configured first)
 
 `pip install -r requirements.txt`

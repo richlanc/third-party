@@ -2,7 +2,7 @@ SHELL:=/bin/bash -euo pipefail
 ROOT_DIR = $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 DEBS = $(patsubst $(ROOT_DIR)%/, %, $(filter %/, $(wildcard $(ROOT_DIR)debs/*/)))
 
-.PHONY: pull debs-32 32 debs-64 64 index $(DEBS)
+.PHONY: debs-32 32 debs-64 64 index $(DEBS)
 
 test:
 	@echo $(DEBS)
@@ -19,7 +19,7 @@ $(DEBS):
 
 64: | debs-64 index
 32: | debs-32 index
-all: pull debs-32 debs-64 index
+all: debs-32 debs-64 index
 
 index:
 	docker build ./index -t xenial/index
