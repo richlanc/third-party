@@ -2,28 +2,22 @@ SHELL:=/bin/bash -euo pipefail
 ROOT_DIR = $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 DEBS = $(patsubst $(ROOT_DIR)%/, %, $(filter %/, $(wildcard $(ROOT_DIR)debs/*/)))
 
-.PHONY: debs-32 32 debs-64 64 index $(DEBS)
+.PHONY: debs packages index $(DEBS)
 
 test:
 	@echo $(DEBS)
 
-debs-32:
-	$(MAKE) -C debs all ARCH=i386
+debs:
+	$(MAKE) -C debs all
 
-debs-64:
-	$(MAKE) -C debs all ARCH=amd64
-
-$(DEBS):
-	$(MAKE) -C debs $(patsubst debs/%, %, $@) ARCH=i386
-	$(MAKE) -C debs $(patsubst debs/%, %, $@) ARCH=amd64
-
-64: | debs-64 index
-32: | debs-32 index
-all: debs-32 debs-64 index
+packages: debs index
 
 index:
 	docker build ./index -t xenial/index
 	docker run --rm -v "$(CURDIR)/out:/packages" xenial/index
+
+$(DEBS):
+	$(MAKE) -C debs $(patsubst debs/%, %, $@)
 
 #  --delete
 sync:

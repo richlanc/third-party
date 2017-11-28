@@ -1,10 +1,8 @@
 ## Building
 
-This is a set of build containers for various packages, brought up to date for Trusty.
+This is a set of build containers for various packages, brought up to date for Xenial 64 bits.
 
-`make 32`
-
-`make 64`
+`make packages`
 
 Reindex packages
 
