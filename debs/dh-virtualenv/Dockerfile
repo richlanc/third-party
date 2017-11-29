@@ -7,20 +7,23 @@ RUN apt-get update \
       ca-certificates \
       curl \
       debhelper \
-      devscripts \
-      equivs \
       lsb-release \
+      python-sphinx \
+      python-mock \
+      python-setuptools \
       ;
 
-WORKDIR /build/source
+WORKDIR /build
 
-COPY debian/control debian/control
+ADD https://github.com/spotify/dh-virtualenv/archive/1.0.tar.gz /build/dh-virtualenv_1.0.orig.tar.gz
 
-RUN apt-get update && mk-build-deps --install --tool 'apt-get --no-install-recommends -y'
+RUN tar xvpzf dh-virtualenv_1.0.orig.tar.gz
 
-COPY  . ./
+WORKDIR /build/dh-virtualenv-1.0
 
-RUN dpkg-buildflags && DEB_BUILD_OPTIONS="parallel=$(nproc) nocheck" dpkg-buildpackage -B
+VOLUME /out
+
+RUN dpkg-buildflags && DEB_BUILD_OPTIONS="parallel=$(nproc) nocheck" dpkg-buildpackage -us -uc
 
 CMD mkdir -p /out/dists/$( lsb_release -c -s )/main/binary-$( dpkg --print-architecture )/ \
     && dpkg -c /build/*.deb \

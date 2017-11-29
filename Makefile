@@ -1,30 +1,18 @@
 SHELL:=/bin/bash -euo pipefail
 ROOT_DIR = $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 DEBS = $(patsubst $(ROOT_DIR)%/, %, $(filter %/, $(wildcard $(ROOT_DIR)debs/*/)))
+OUTPUT = $(wildcard $(ROOT_DIR)out/dists/xenial/main/binary-amd64/*.deb)
 
-.PHONY: pull debs-32 32 debs-64 64 index $(DEBS)
+.PHONY: debs $(DEBS)
 
 test:
 	@echo $(DEBS)
 
-debs-32:
-	$(MAKE) -C debs all ARCH=i386
-
-debs-64:
-	$(MAKE) -C debs all ARCH=amd64
+debs:
+	$(MAKE) -C debs all
 
 $(DEBS):
-	$(MAKE) -C debs $(patsubst debs/%, %, $@) ARCH=i386
-	$(MAKE) -C debs $(patsubst debs/%, %, $@) ARCH=amd64
+	$(MAKE) -C debs $(patsubst debs/%, %, $@)
 
-64: | debs-64 index
-32: | debs-32 index
-all: pull debs-32 debs-64 index
-
-index:
-	docker build ./index -t xenial/index
-	docker run --rm -v "$(CURDIR)/out:/packages" xenial/index
-
-#  --delete
-sync:
-	aws s3 sync --storage-class REDUCED_REDUNDANCY out/ s3://osirium-trusty/$(shell git rev-list --count HEAD)-$(shell git rev-parse --short head)/
+upload: $(OUTPUT)
+	$(foreach package, $(OUTPUT), curl -u $(ARTIFACTORY_USR):$(ARTIFACTORY_PSW) -XPUT "http://artifactory.osirium.net/debian-local/pool/$(notdir $(package));deb.distribution=xenial;deb.component=main;deb.architecture=amd64" -T $(package))

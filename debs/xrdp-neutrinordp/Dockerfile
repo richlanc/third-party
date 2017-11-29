@@ -1,4 +1,4 @@
-FROM #IMAGE#
+FROM ubuntu:xenial-20171006
 
 ENV DEBIAN_FRONTEND=noninteractive
 
