@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:xenial-20171006
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
