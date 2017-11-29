@@ -15,4 +15,4 @@ $(DEBS):
 	$(MAKE) -C debs $(patsubst debs/%, %, $@)
 
 upload: $(OUTPUT)
-	$(foreach package, $(OUTPUT), curl -u $(ARTIFACTORY_USR):$(ARTIFACTORY_PSW) -XPUT "http://artifactory.osirium.net/debian-local/pool/$(notdir $(package));deb.distribution=xenial;deb.component=main;deb.architecture=amd64" -T $(package))
+	$(foreach package, $(OUTPUT), curl -u "$(ARTIFACTORY_USR):$(ARTIFACTORY_PSW)" -XPUT "http://artifactory.osirium.net/debian-local/pool/$(notdir $(package));deb.distribution=xenial;deb.component=main;deb.architecture=amd64" -T $(package);)
