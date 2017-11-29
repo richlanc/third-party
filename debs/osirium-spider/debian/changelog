@@ -1,40 +1,40 @@
-osirium-spider (1:5.5.0) trusty; urgency=medium
+osirium-spider (1:5.5.0) xenial; urgency=medium
 
   * Release 5.5.0
 
  -- Osirium <support@osirium.com>  Thu, 28 Sep 2017 08:09:35 +0000
 
-osirium-spider (1:5.4.0) trusty; urgency=medium
+osirium-spider (1:5.4.0) xenial; urgency=medium
 
   * Release 5.4.0
 
  -- Osirium <support@osirium.com>  Wed, 27 Sep 2017 08:11:31 +0000
 
-osirium-spider (1:5.3.3) trusty; urgency=medium
+osirium-spider (1:5.3.3) xenial; urgency=medium
 
   * Release 5.3.3
 
  -- Osirium <support@osirium.com>  Wed, 09 Aug 2017 16:57:59 +0000
 
-osirium-spider (1:5.3.2) trusty; urgency=medium
+osirium-spider (1:5.3.2) xenial; urgency=medium
 
   * Release 5.3.2
 
  -- Osirium <support@osirium.com>  Wed, 02 Aug 2017 14:50:15 +0000
 
-osirium-spider (1:5.3.1) trusty; urgency=medium
+osirium-spider (1:5.3.1) xenial; urgency=medium
 
   * Release 5.3.1
 
  -- Osirium <support@osirium.com>  Thu, 27 Jul 2017 07:23:21 +0000
 
-osirium-spider (1:5.3.0) trusty; urgency=medium
+osirium-spider (1:5.3.0) xenial; urgency=medium
 
   * Release 5.3.0
 
  -- Osirium <support@osirium.com>  Fri, 26 May 2017 15:40:13 +0000
 
-osirium-spider (1:5.2.0) trusty; urgency=low
+osirium-spider (1:5.2.0) xenial; urgency=low
 
   * Release 5.2.0
 

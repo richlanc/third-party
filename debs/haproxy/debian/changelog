@@ -4,7 +4,7 @@ haproxy (1.6.13-ubuntu0) xenial; urgency=medium
 
  -- Osirium <support@osirium.com>  Mon, 02 Oct 2017 10:50:40 +0000
 
-haproxy (1.6.11-ubuntu0) trusty; urgency=medium
+haproxy (1.6.11-ubuntu0) xenial; urgency=medium
 
   * Initial release.
 

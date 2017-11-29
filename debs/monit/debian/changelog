@@ -4,13 +4,13 @@ monit (5.24.0-ubuntu0) xenial; urgency=medium
 
  -- Osirium <support@osirium.com>  Mon, 02 Oct 2017 10:52:12 +0000
 
-monit (5.19.0-ubuntu1) trusty; urgency=medium
+monit (5.19.0-ubuntu1) xenial; urgency=medium
 
   * Remove stock monitrc
 
  -- Osirium <support@osirium.com>  Mon, 24 Apr 2017 22:36:47 +0000
 
-monit (5.19.0-ubuntu0) trusty; urgency=low
+monit (5.19.0-ubuntu0) xenial; urgency=low
 
   * Release 5.19.0
 
