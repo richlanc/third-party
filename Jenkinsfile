@@ -7,10 +7,14 @@ pipeline {
     }
     stages {
         stage('Build') {
-            sh 'make debs'
+            steps {
+                sh 'make debs'
+            }
         }
         stage('Push') {
-            sh 'make upload'
+            steps {
+                sh 'make upload'
+            }
         }
     }
 }
