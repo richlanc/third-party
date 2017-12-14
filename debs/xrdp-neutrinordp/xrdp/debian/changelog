@@ -1,3 +1,9 @@
+osirium-xrdp (1.0.5-osirium0) xenial; urgency=medium
+
+  * Force enable RDP font smoothing
+
+ -- Osirium <support@osirium.com>  Thu, 07 Dec 2017 14:55:43 +0000
+
 osirium-xrdp (1.0.4-osirium0) xenial; urgency=high
 
   * Do not log sha1 hash of passwords
