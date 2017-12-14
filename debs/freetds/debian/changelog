@@ -1,3 +1,9 @@
+freetds (1.00.9-ubuntu1) xenial; urgency=low
+
+  * Added missing odbcinst.ini
+
+ -- Osirium <support@osirium.com>  Tue, 12 Dec 2017 15:15:00 +0100
+
 freetds (1.00.9-ubuntu0) xenial; urgency=low
 
   * Release 1.00.9
