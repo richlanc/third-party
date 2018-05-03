@@ -7,6 +7,7 @@ Standards-Version: 3.9.4
 Homepage: https://www.osirium.com
 
 Package: nginx-ldap-auth
+Conflicts: nginx
 Section: base
 Priority: optional
 Architecture: any
