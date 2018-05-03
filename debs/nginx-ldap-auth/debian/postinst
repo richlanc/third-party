@@ -1,0 +1,35 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        # Touch and set permisions on default log files on installation
+        if [ -z "$2" ]; then
+            adduser --system --group --quiet nginx
+
+            if [ -d /var/log/nginx ]; then
+                if [ ! -d /var/lib/nginx/body ]; then
+                    mkdir -p /var/lib/nginx/body
+                    chmod 640 /var/lib/nginx/body
+                    chown nginx:nginx /var/lib/nginx/body
+                fi
+                if [ ! -e /var/log/nginx/access.log ]; then
+                    touch /var/log/nginx/access.log
+                    chmod 640 /var/log/nginx/access.log
+                    chown nginx:nginx /var/log/nginx/access.log
+                fi
+
+                if [ ! -e /var/log/nginx/error.log ]; then
+                    touch /var/log/nginx/error.log
+                    chmod 640 /var/log/nginx/error.log
+                    chown nginx:nginx /var/log/nginx/error.log
+                fi
+            fi
+        fi
+       ;;
+esac
+
+#DEBHELPER#
+
+exit 0

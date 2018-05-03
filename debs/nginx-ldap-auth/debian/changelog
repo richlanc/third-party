@@ -1,0 +1,23 @@
+nginx (1.13.7-ubuntu0-ldap-auth) xenial; urgency=medium
+
+  * Bump nginx to 1.13.7
+
+ -- Osirium <support@osirium.com>  Mon, 03 May 2018 10:04:21 +0000
+
+nginx (1.12.1-ubuntu0) xenial; urgency=medium
+
+  * Bump nginx to 1.12.1
+
+ -- Osirium <support@osirium.com>  Mon, 02 Oct 2017 10:49:51 +0000
+
+nginx (1.11.4-ubuntu1) xenial; urgency=low
+
+  * Compile with http auth request module support
+
+ -- Osirium <support@osirium.com>  Wed, 19 Oct 2016 08:33:00 +0100
+
+nginx (1.11.4-ubuntu0) xenial; urgency=low
+
+  * Release 1.11.4
+
+ -- Osirium <support@osirium.com>  Wed, 19 Oct 2016 08:33:00 +0100
