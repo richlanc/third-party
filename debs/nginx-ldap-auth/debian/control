@@ -6,8 +6,8 @@ Build-Depends: debhelper (>= 8.0.0), libssl-dev, libpcre++-dev
 Standards-Version: 3.9.4
 Homepage: https://www.osirium.com
 
-Package: nginx
+Package: nginx-ldap-auth
 Section: base
 Priority: optional
 Architecture: any
-Description: nginx
+Description: nginx-ldap-auth
