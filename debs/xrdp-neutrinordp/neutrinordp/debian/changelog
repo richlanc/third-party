@@ -1,14 +1,20 @@
+osirium-neutrinordp (1.0.5-osirium0) xenial; urgency=medium
+
+  * Passthrough client timezone info
+
+ -- Osirium <support@osirium.com>  Tue, 15 May 2018 12:09:00 +0100
+
 osirium-neutrinordp (1.0.4-osirium1) xenial; urgency=medium
 
   * Negotiate TLS protocol version
 
- -- Osirium <support@osirium.com> Wed, 28 Mar 2018 15:08:00 +0100
+ -- Osirium <support@osirium.com>  Wed, 28 Mar 2018 15:08:00 +0100
 
 osirium-neutrinordp (1.0.3-osirium1) xenial; urgency=medium
 
   * Fixed error not being set on protocol negotiation failure
 
- -- Osirium <support@osirium.com> Tue, 20 Jun 2017 16:36:00 +0100
+ -- Osirium <support@osirium.com>  Tue, 20 Jun 2017 16:36:00 +0100
 
 osirium-neutrinordp (1.0.2-osirium1) xenial; urgency=medium
 
