@@ -27,12 +27,12 @@ RUN cd /build/source/xrdp && \
 	apt-get update && \
 	mk-build-deps --install --tool 'apt-get --no-install-recommends -y'
 
-ARG neutrinordpcommit=92a66452ad6d1b40b088582bbfcff6d0b7953837
+ARG neutrinordpcommit=1.0.5-osirium0
 RUN cd /build/source/neutrinordp && \
 	curl -L https://github.com/Osirium/NeutrinoRDP/archive/${neutrinordpcommit}.tar.gz \
 	| tar -x -z -v -p --strip-components=1
 
-ARG xrdpcommit=1.0.5
+ARG xrdpcommit=1.0.6-osirium0
 RUN cd /build/source/xrdp && curl -L https://github.com/Osirium/xrdp/archive/${xrdpcommit}.tar.gz \
     | tar -x -z -v -p --strip-components=1
 

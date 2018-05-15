@@ -1,3 +1,9 @@
+osirium-xrdp (1.0.6-osirium0) xenial; urgency=medium
+
+  * Passthrough client timezone info
+
+ -- Osirium <support@osirium.com>  Tue, 15 May 2018 12:08:00 +0100
+
 osirium-xrdp (1.0.5-osirium0) xenial; urgency=medium
 
   * Force enable RDP font smoothing
