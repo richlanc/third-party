@@ -1,3 +1,9 @@
+osirium-xrdp (1.0.7-osirium0) xenial; urgency=medium
+
+  * Fix non-conforming fastpath support
+
+ -- Osirium <support@osirium.com>  Tue, 04 Jun 2018 13:52:15 +0100
+
 osirium-xrdp (1.0.6-osirium0) xenial; urgency=medium
 
   * Passthrough client timezone info
