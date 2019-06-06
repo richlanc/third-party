@@ -32,7 +32,7 @@ RUN cd /build/source/neutrinordp && \
 	curl -L https://github.com/Osirium/NeutrinoRDP/archive/${neutrinordpcommit}.tar.gz \
 	| tar -x -z -v -p --strip-components=1
 
-ARG xrdpcommit=1.0.6-osirium0
+ARG xrdpcommit=1.0.7-osirium0
 RUN cd /build/source/xrdp && curl -L https://github.com/Osirium/xrdp/archive/${xrdpcommit}.tar.gz \
     | tar -x -z -v -p --strip-components=1
 
